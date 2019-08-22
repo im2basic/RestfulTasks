@@ -1,12 +1,20 @@
 <!-- Where we code our 1 page html for the front end-->
-
-
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+  <h1>Welcome to {{ title }}!</h1>
 </div>
 
+<button (click)="getAnimals()">Get all animals</button>
+
+<div *ngFor="let a of animals">
+  <h2>{{a.name}}</h2>
+  <button (click) = "getOne(a._id)" >Show Details</button>
+</div>
+<div *ngIf="animal">
+  <h2>{{ animal.name }}'s Info:</h2>
+  <p>Color: {{animal.color}}</p>
+  <p>Favorite Food: {{ animal.favoriteFood }}</p>
+  <button (click)="closeDetails()"> Close</button>
+</div>
 
 
 <!-- -- DO NOT DELETE, NEEDED -- -->

@@ -9,28 +9,34 @@ import {HttpService } from './http.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'public';
+  title = 'Restful Animals!';
   animals;
+  animal;
+
   // tasks;
-  constructor(private _httpService: HttpService){
-    this.getAnimals();
-    console.log(this.animals);
-  }
+  constructor(private _httpService: HttpService){ }
+
   ngOnInit(){
-    this.getAnimals();
+
   }
-  // getTasks(){
-  //   let obs = this._httpService.getTasks();
-    // obs.subscribe(data => {
-    //   this.tasks = data ['results'];
-    //   console.log(data);
-    // })
-  // }
+
   getAnimals(){
     let observable = this._httpService.getAnimals();
     observable.subscribe(data => {
       this.animals = data['results'];
-      console.log(data);
+      console.log("We got our tasks!",data);
     });
   }
+  getOne(id){
+    let observable = this._httpService.getOne(id);
+    observable.subscribe(data => {
+      this.animal = data['result'];
+      console.log("wassup");
+    });
+  }
+  closeDetails(){
+    this.animal = null;
+    console.log("hi");
+  }
+
 }

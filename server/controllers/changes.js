@@ -11,7 +11,7 @@ module.exports= {
     //Shows specific data saved from the DB
     show: (req, res) => {
         Action.findOne({_id: req.params.id})
-        .then(result => res.json({results : result}))
+        .then(result => res.json({result : result}))
         .catch(err => res.json({errors: err.errors}));
     },
     //Creates data to save into the DB
