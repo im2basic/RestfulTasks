@@ -4,10 +4,18 @@ const mongoose = require('mongoose')
 //----Change vvvv------
 const AnimalSchema = new mongoose.Schema({
     //--Created model/Change to accomodate needs--
-    name: String,
-    age: Number,
-    color: String,
-    favoriteFood: String
+    name:{
+        type: String,
+        required: [true, "Must have a name!"]
+    },
+    color:{
+        type: String,
+        required: [true, "What is your color?" ]
+    },
+    favoriteFood:{
+        type: String,
+        required: [true, "what is your favorite food?"]
+    }
 //--CreatedAT vvv UpdatedAt--
 },{timestamps:true})
 

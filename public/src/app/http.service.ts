@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 //---IMPORT---
 import { HttpClient} from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +22,10 @@ export class HttpService {
 
   getOne(id){
     return this._http.get(`/${id}`);
+  }
+
+  createAnimal(newAnimal){
+    return this._http.post('/create', newAnimal);
   }
   
 }
